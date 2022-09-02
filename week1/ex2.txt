@@ -1,0 +1,10 @@
+  259  cat ~/.bash_history 
+  260  ls
+  261  nano ex2.sh 
+  262  ls
+  263  ex2.sh
+  264  ./ex2.sh 
+  265  ls
+  266  cat ex2.txt 
+  267  cat ex2.sh 
+  268  history | tail -n 10 > ex2.txt 
