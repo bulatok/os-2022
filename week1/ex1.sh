@@ -1,2 +1,2 @@
 #!/bin/sh
-ls /usr/bin/ | grep gcc | tail -n 5 | rev > ex1.txt
+ls /usr/bin/ | grep gcc | sort -r | tail -n 5 > ex1.txt
