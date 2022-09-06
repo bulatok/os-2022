@@ -17,9 +17,9 @@ home
 root
 boot
 etc
-run
 snap
-dev
 tmp
 sys
 proc
+dev
+run

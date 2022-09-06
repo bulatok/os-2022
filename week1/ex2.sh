@@ -1,3 +1,3 @@
 #!/bin/bash
 
-history | tail -n 10 > ex2.txt
+echo some_command && ls -a && history | tail -n 10 > ex2.txt
