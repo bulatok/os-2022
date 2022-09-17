@@ -34,7 +34,10 @@ int main(void){
     for (int i = 0; i < 5; i++){
         p[i] = foo(p[i]);
     }
-    printf("\n");
+    
+    for (int i = 0; i < 5; i++){
+        printf("birth year: %d\n", p[i]);
+    }
 
     free(p);
     return 0;
