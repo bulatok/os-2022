@@ -14,7 +14,6 @@ int main(void){
     int *const p = malloc(5 * sizeof(const int));
     for (int i = 0; i < 5; i++){
         p[i] = x;
-        *(p + i) = x;
     }
 
     for (int i = 0; i < 5; i++){
