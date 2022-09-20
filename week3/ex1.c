@@ -11,13 +11,14 @@ int main(void){
     const int* q = &x;
     printf("%d\n", *q);
 
-    int *const p = malloc(5 * sizeof(const int));
+    const int *const p = malloc(5 * sizeof(const int)); // acording to task description
+    int *p_not_const = p;
     for (int i = 0; i < 5; i++){
-        p[i] = x;
+        p_not_const[i] = x;
     }
 
     for (int i = 0; i < 5; i++){
-        printf("%p ", &p[i]);
+        printf("%p ", p_not_const + i);
     }
     printf("\n");
 
@@ -26,18 +27,18 @@ int main(void){
         int age;
         printf("age: ");
         scanf("%d", &age);
-        p[i] = age;
+        p_not_const[i] = age;
     }
     printf("\n");
 
     for (int i = 0; i < 5; i++){
-        p[i] = foo(p[i]);
+        p_not_const[i] = foo(p[i]);
     }
     
     for (int i = 0; i < 5; i++){
         printf("birth year: %d\n", p[i]);
     }
 
-    free(p);
+    free(p_not_const);
     return 0;
 }
