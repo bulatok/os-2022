@@ -1,0 +1,5 @@
+for n = 10000000 and m ∈ {1, 2, 4, 10, 100}
+
+Using date shell command I see that the execution time
+of programms decreases, because we distibute works between
+threads.

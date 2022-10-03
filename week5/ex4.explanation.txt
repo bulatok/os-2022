@@ -1,0 +1,5 @@
+Here we also see that the execution time decreases as in third exercise, because
+we distribute work between threads. But the decrease just tends to 
+~3.5 seconds, because mutex force threads to wait untill another thread
+done his work, and so we always have some bound in execution time, no matter how
+many threads we will use.
