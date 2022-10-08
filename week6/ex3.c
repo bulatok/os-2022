@@ -84,7 +84,11 @@ int main(int argc, char *argv[]){
             i2--;
             
             a[i].tat_time = sm - a[i].arrive_time;
+            
             a[i].wt_time = sm - a[i].arrive_time - a[i].burst_time;
+            if (a[i].wt_time < 0){ // the first one which does not wait anyone
+                a[i].wt_time = 0;
+            }
             
             wt  += sm - a[i].tat_time - a[i].burst_time;  
             tat += sm - a[i].arrive_time;  

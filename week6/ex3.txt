@@ -1,0 +1,6 @@
+After several tests I see that for very small quatum the results 
+are not such good as preveous algortithms results.
+
+But by manually changing the quatum Average Turnaround time, Average waiting time,
+Completion time and other timing for each process are decreasing. This states that
+right chosing of the quatum can decrease the timings comparing with preveous algortithms.
