@@ -1,0 +1,1 @@
+gcc -o ex1 -pthread ex1.c && ./ex1

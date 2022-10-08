@@ -1,0 +1,16 @@
+Comparing with first come first served (FCFS) the shortest job first algorithm shows
+that this solution is better than first one.
+Firstly, the average turnaround time for each job would be minimal, because we pick the shortest
+job first.
+Secondly, we minimize the mean of average turnaround. For example for 4 jobs
+where a,b,c,d are execution times we have (4a + 3b + 2c + d)/4. From this formula we
+see that we first need minimize a then b then c then d respectively. And by this algorithm we do it.
+
+But sometimes we have another situation. Example from book - 
+```As a counterexample, consider five jobs, A through
+E, with run times of 2, 4, 1, 1, and 1, respectively. Their arrival times are 0, 0, 3, 3,
+and 3. Initially, only A or B can be chosen, since the other three jobs have not arri-
+ved yet. Using shortest job first, we will run the jobs in the order A, B, C, D, E, for
+an average wait of 4.6. However, running them in the order B, C, D, E, A has an
+average wait of 4.4``` 
+Reference: Andrew S. Tanenbaum and Herbert Bos. Modern Operating Systems (5th Edition), Pearson, page 158   

@@ -1,0 +1,1 @@
+gcc -o ex2 -pthread ex2.c && ./ex2
