@@ -29,12 +29,12 @@ int main(int argc, char *argv[]){
 
     printf("n - ");
     scanf("%d", &n);
-
-    pritnf("quantum - ");
-    printf("%d", &q);
+    printf("q - ");
+    scanf("%d", &q);
 
 
     struct MyPros a[n];
+    int tmp_burst[n];
     for (int i = 0; i < n; i++){
         printf("arrival time for pros %d - ", i);
         scanf("%d", &a[i].arrive_time);
@@ -42,6 +42,7 @@ int main(int argc, char *argv[]){
         scanf("%d", &a[i].burst_time);
         printf("\n");
         
+        a[i].wt_time = 0;         
     }
     
     // sorting by arrival time...
@@ -50,57 +51,79 @@ int main(int argc, char *argv[]){
             for (int j = 0; j < n-i-1; j++){
                 if (a[j].arrive_time > a[j+1].arrive_time){
                     swap(&a[j].arrive_time, &a[j+1].arrive_time);
+                    swap(&a[j].burst_time, &a[j+1].burst_time);
                 }
             }
         }
     }
-
-    // ------------------------------------------------------------------------------
-
-    printf("\n");
-    // Completion time(CT)
     {
-        a[0].ct_time = a[0].arrive_time + a[0].burst_time;
-        for (int i = 1; i < n; i++){
-            int tmp = 0;
-            if (a[i-1].ct_time < a[i].arrive_time){
-                tmp = a[i].arrive_time - a[i].ct_time;
-            }
-            a[i].ct_time = a[i-1].ct_time + a[i].burst_time + tmp;
+        for (int i = 0; i<n;i++){
+            tmp_burst[i] = a[i].burst_time;
         }
-        for (int i=0;i<n;i++){
-           printf("CT for pros %d - %d\n", i, a[i].ct_time);
-        }
-        printf("\n");
     }
+    // ------------------------------------------------------------------------------
+    
+    printf("\n");
+    int sm = 0;
+    int i2 = n;
+    int cnt = 0;
+    int wt = 0;
+    int tat = 0;
+    int t = 0;
+    for (int i = 0; i2 != 0;){
+        if (tmp_burst[i] <= q && tmp_burst[i] > 0){
+            sm += tmp_burst[i];
+            tmp_burst[i] = 0;
+            cnt = 1;
+        }else if(tmp_burst[i] > 0){
+            tmp_burst[i] -= q;
+            sm += q;
+        }
 
+        if (tmp_burst[i] == 0 && cnt == 1){
+            i2--;
+            
+            a[i].tat_time = sm - a[i].arrive_time;
+            a[i].wt_time = sm - a[i].arrive_time - a[i].burst_time;
+            
+            wt  += sm - a[i].tat_time - a[i].burst_time;  
+            tat += sm - a[i].arrive_time;  
+            cnt = 0; 
+        }
+
+        if(i == n-1){  
+            i=0;  
+        }else if(a[i+1].arrive_time <= sm){  
+            i++;
+        }else{  
+            i=0;  
+        } 
+    }
+    
     // Turn around time(TAT) for each process
     {
-        for (int i = 0; i < n; i++){
-            a[i].tat_time = a[i].ct_time - a[i].arrive_time;
-            avg_tat += (double)a[i].tat_time;
-        }
-        for (int i=0;i<n;i++){
-           printf("TAT for pros %d - %d\n", i, a[i].tat_time);
+        for (int i = 0; i < n;i++){
+            printf("TAT for pros %d - %d\n", i, a[i].tat_time);
+            avg_tat += (double) a[i].tat_time;
         }
         avg_tat /= (double)n;
         printf("\n");
     }
 
     // Waiting time(WT) for each process
-    {
-        for (int i = 0; i < n; i++){
-            a[i].wt_time = a[i].tat_time - a[i].burst_time;
-            avg_wt += (double)a[i].wt_time;
-        }
+    {   
         for (int i=0;i<n;i++){
            printf("WT for pros %d - %d\n", i, a[i].wt_time);
+           avg_wt += (double) a[i].wt_time;
+           t += a[i].wt_time;
+           t += a[i].burst_time;
         }
         avg_wt /= (double)n;
         printf("\n");
     }
 
     {
+        printf("Completion time(CT) - %d\n", t);
         printf("Average Turnaround time - %f\n", avg_tat);
         printf("Average waiting time - %f\n", avg_wt);
     }

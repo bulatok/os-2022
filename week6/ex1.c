@@ -100,6 +100,8 @@ int main(int argc, char *argv[]){
         printf("\n");
     }
 
+    
+
     {
         printf("Average Turnaround time - %f\n", avg_tat);
         printf("Average waiting time - %f\n", avg_wt);

@@ -1,0 +1,1 @@
+gcc -o ex3 -pthread ex3.c && ./ex3

@@ -45,7 +45,8 @@ int main(int argc, char *argv[]){
         for (int i = 0; i < n; i++){
             for (int j = 0; j < n-i-1; j++){
                 if (a[j].arrive_time > a[j+1].arrive_time){
-                    swap(&a[j].arrive_time, &a[j+1].arrive_time);
+                        swap(&a[j].arrive_time, &a[j+1].arrive_time);
+                        swap(&a[j].burst_time, &a[j+1].burst_time);
                 }
             }
         }
