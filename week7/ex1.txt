@@ -1,0 +1,2 @@
+   text	   data	    bss	    dec	    hex	filename
+ 151516	   6504	   6152	 164172	  2814c	/bin/sudo
