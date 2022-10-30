@@ -1,0 +1,2 @@
+After running ex2 in background, I see that number of MEM column of this process 
+increases, this happens because on each iteration the process allocates 10 MB of memeory.

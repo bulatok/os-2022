@@ -1,0 +1,8 @@
+Physical address is a addres of physical cell in memory device, for instance RAM.
+
+Virtual address is an abstract address, which is mapped into physical address.
+
+As I understand the difference is that with physical addressing programs exactly 
+knows the real layout of RAM, as opposed to virtual addressing, where programs go to 
+a page table, which then maps from the virtual to physical address. So every program has its own
+"private" address space.
