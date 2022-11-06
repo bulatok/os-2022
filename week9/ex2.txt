@@ -1,0 +1,10 @@
+If we will access the pages that were already accessed recently, then we will
+increase ratio (Hit/Miss)
+For instance (high ratio = 2), n=2
+1 1 1 2 2 2 3 3 3 4 4 4 5 5 5
+
+If we will access new pages each tick or the pages that were accessed
+long time ago, which would not be in table, because they will be replaced
+with other pages.
+For instance (low ratio = 0.176471), n = 2
+1 2 3 4 5 1 2 3 4 5 1 2 3 4 5

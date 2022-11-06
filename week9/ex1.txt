@@ -1,0 +1,14 @@
+n: 10
+hits: 7
+misses: 993
+ratio: 0.007049
+
+n: 50
+hits: 50
+misses: 950
+ratio: 0.052632
+
+n: 100
+hits: 96
+misses: 904
+ratio: 0.106195
