@@ -1,0 +1,6 @@
+-rwxrwxrwx 1 bulatok bulatok 7 Nov 12 18:05 _ex3.txt
+-rwxrwxrwx 1 bulatok bulatok 7 Nov 12 18:05 _ex3.txt
+-rwxrwxrwx 1 bulatok bulatok 7 Nov 12 18:05 _ex3.txt
+660: user/owner can read, can write and can't execute. Group can read, can write and can't execute. Other can't read, can't write and can't execute
+775: user/owner can read, can write and can execute. Group can read, can write and can execute. Other can read, can't write and can execute
+777: user/owner can read, can write and can execute. Group can read, can write and can execute. Other can read, can write and can execute
